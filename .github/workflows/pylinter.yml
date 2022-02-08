@@ -1,0 +1,14 @@
+name: Python linter
+on: push
+
+jobs:
+  python-linter:
+    name: Python linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: wemake-python-styleguide
+        uses: wemake-services/wemake-python-styleguide
+        with:
+          reporter: 'github-pr-review'
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
